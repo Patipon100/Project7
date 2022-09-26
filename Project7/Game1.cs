@@ -5,9 +5,13 @@ using Microsoft.Xna.Framework.Input;
 namespace Project7;
 public class Game1 : Game
 {
-    private GraphicsDeviceManager _graphics;
-    private SpriteBatch _spriteBatch;
-
+    private GraphicsDeviceManager graphics;
+    private SpriteBatch spriteBatch;
+    Texture2D ballTexture;
+    Texture2D charTexture;
+    Vector2 charPosition = newVector2(0,250);
+    Vector2 ballPosition = newVector2(250, 250);
+    bool personHit;
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -24,8 +28,9 @@ public class Game1 : Game
 
     protected override void LoadContent()
     {
-        _spriteBatch = new SpriteBatch(GraphicsDevice);
-
+        spriteBatch = new SpriteBatch(GraphicsDevice);
+        charTexture = Content.Load<Texture2D>("Char01");
+        ballTexture = Content.Load<Texture2D>("ball");
         // TODO: use this.Content to load your game content here
     }
 
